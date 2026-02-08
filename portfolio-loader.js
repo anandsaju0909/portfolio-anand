@@ -14,7 +14,8 @@ const portfolioData = {
         { filename: 'onam news paper add.jpg', title: 'Onam Newspaper Ad', category: 'Print' },
         { filename: 'phantom.jpg', title: 'Phantom', category: 'Branding' },
         { filename: 'image.png', title: 'Marriott Design 1', category: 'Branding' },
-        { filename: 'image copy.png', title: 'Marriott Design 2', category: 'Branding' }
+        { filename: 'image copy.png', title: 'Marriott Design 2', category: 'Branding' },
+        { filename: 'image copy 2.png', title: 'Marriott Design 3', category: 'Branding' }
     ],
     swiggy: [
         { filename: 'Artboard 1.jpg', title: 'Artboard Design 1', category: 'Digital' },

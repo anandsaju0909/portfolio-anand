@@ -20,6 +20,13 @@ const portfolioData = {
         { filename: 'Untitled-1.jpg', title: 'Campaign Design', category: 'Marketing' },
         { filename: 'WhatsApp Image 2026-02-05 at 11.16.07 AM.jpeg', title: 'Social Media', category: 'Social' },
         { filename: 'rice mockup.jpg', title: 'Rice Mockup', category: 'Product' }
+    ],
+    melam: [
+        { filename: 'image.png', title: 'Melam Design 1', category: 'Cultural' },
+        { filename: 'image copy.png', title: 'Melam Design 2', category: 'Cultural' },
+        { filename: 'image copy 2.png', title: 'Melam Design 3', category: 'Cultural' },
+        { filename: 'image copy 3.png', title: 'Melam Design 4', category: 'Cultural' },
+        { filename: 'image copy 4.png', title: 'Melam Design 5', category: 'Cultural' }
     ]
 };
 

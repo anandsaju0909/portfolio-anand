@@ -18,11 +18,11 @@ const portfolioData = {
         { filename: 'image copy 2.png', title: 'Marriott Design 3', category: 'Branding' }
     ],
     swiggy: [
-        { filename: 'Artboard 1.jpg', title: 'Artboard Design 1', category: 'Digital' },
-        { filename: 'Artboard 2.png', title: 'Artboard Design 2', category: 'Digital' },
-        { filename: 'Untitled-1.jpg', title: 'Campaign Design', category: 'Marketing' },
-        { filename: 'WhatsApp Image 2026-02-05 at 11.16.07 AM.jpeg', title: 'Social Media', category: 'Social' },
-        { filename: 'rice mockup.jpg', title: 'Rice Mockup', category: 'Product' }
+        { filename: 'Artboard 1.jpg', title: 'Packaging Designing', category: 'Packaging' },
+        { filename: 'Artboard 2.png', title: 'Packaging Designing', category: 'Packaging' },
+        { filename: 'Untitled-1.jpg', title: 'Packaging Designing', category: 'Packaging' },
+        { filename: 'WhatsApp Image 2026-02-05 at 11.16.07 AM.jpeg', title: 'Packaging Designing', category: 'Packaging' },
+        { filename: 'rice mockup.jpg', title: 'Packaging Designing', category: 'Packaging' }
     ],
     melam: [
         { filename: 'image.png', title: 'Melam Design 1', category: 'Cultural' },

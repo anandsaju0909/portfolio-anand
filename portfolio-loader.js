@@ -12,7 +12,9 @@ const portfolioData = {
         { filename: 'hoarding 2.jpg', title: 'Hoarding Design 2', category: 'Outdoor' },
         { filename: 'hoarding.jpg', title: 'Hoarding Design', category: 'Outdoor' },
         { filename: 'onam news paper add.jpg', title: 'Onam Newspaper Ad', category: 'Print' },
-        { filename: 'phantom.jpg', title: 'Phantom', category: 'Branding' }
+        { filename: 'phantom.jpg', title: 'Phantom', category: 'Branding' },
+        { filename: 'image.png', title: 'Marriott Design 1', category: 'Branding' },
+        { filename: 'image copy.png', title: 'Marriott Design 2', category: 'Branding' }
     ],
     swiggy: [
         { filename: 'Artboard 1.jpg', title: 'Artboard Design 1', category: 'Digital' },

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Creative portfolio showcasing stunning poster designs and graphic design work">
+    <title>Anand Saju - Graphic Designer Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="portfolio-loader.js"></script>
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="nav" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">AS</a>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#work" class="nav-link">Work</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                <svg class="sun-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <circle cx="10" cy="10" r="4" stroke="currentColor" stroke-width="2" />
+                    <path
+                        d="M10 2V4M10 16V18M18 10H16M4 10H2M15.66 15.66L14.24 14.24M5.76 5.76L4.34 4.34M15.66 4.34L14.24 5.76M5.76 14.24L4.34 15.66"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg>
+                <svg class="moon-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path
+                        d="M17 10.5C16.1 14.4 12.6 17 8.5 17C4.4 17 1 13.6 1 9.5C1 5.4 3.6 1.9 7.5 1C6.6 2.1 6 3.5 6 5C6 8.3 8.7 11 12 11C13.5 11 14.9 10.4 16 9.5C16.3 9.8 16.7 10.2 17 10.5Z"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-badge">Available for Projects</div>
+            <h1 class="hero-title">
+                <span class="hero-greeting">Hello, I'm</span>
+                <span class="hero-name">Anand Saju</span>
+            </h1>
+            <p class="hero-subtitle">Graphic Designer & Visual Storyteller</p>
+            <p class="hero-description">Crafting bold, minimalist designs that captivate and inspire</p>
+            <a href="#work" class="hero-cta">
+                <span>View My Work</span>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path d="M4 10H16M16 10L10 4M16 10L10 16" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </a>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-line"></div>
+            <span>Scroll</span>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content">
+                    <h2 class="section-title">About Me</h2>
+                    <p class="about-text">
+                        I'm a passionate graphic designer specializing in poster design and visual identity.
+                        With a keen eye for typography and color, I create designs that blend minimalism
+                        with bold visual impact.
+                    </p>
+                    <p class="about-text">
+                        My work spans event posters, brand campaigns, and editorial design. I believe
+                        in the power of simplicity and the importance of every design element telling
+                        a story.
+                    </p>
+
+                    <div class="skills">
+                        <h3 class="skills-title">Expertise</h3>
+                        <div class="skills-grid">
+                            <span class="skill-tag">Poster Design</span>
+                            <span class="skill-tag">Brand Identity</span>
+                            <span class="skill-tag">Typography</span>
+                            <span class="skill-tag">Color Theory</span>
+                            <span class="skill-tag">Print Design</span>
+                            <span class="skill-tag">Digital Art</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-stats">
+                    <div class="stat-card">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Projects Completed</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">30+</div>
+                        <div class="stat-label">Happy Clients</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="work">
+        <div class="container">
+            <div class="portfolio-header">
+                <h2 class="section-title">Selected Work</h2>
+                <p class="section-subtitle">Explore my work organized by client</p>
+
+                <div class="portfolio-filters">
+                    <button class="filter-btn active" data-filter="all">All Work</button>
+                    <button class="filter-btn" data-filter="marriot">Marriott</button>
+                    <button class="filter-btn" data-filter="swiggy">Swiggy</button>
+                </div>
+            </div>
+
+            <div class="portfolio-wrapper">
+                <button class="portfolio-scroll-btn portfolio-scroll-left" id="scrollLeft" aria-label="Scroll left">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </button>
+
+                <div class="portfolio-scroll-container" id="portfolioScroll">
+                    <div class="portfolio-grid" id="portfolioGrid">
+                        <!-- Portfolio items dynamically loaded from client folders -->
+                    </div>
+                </div>
+
+                <button class="portfolio-scroll-btn portfolio-scroll-right" id="scrollRight" aria-label="Scroll right">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-content">
+                <h2 class="section-title">Let's Work Together</h2>
+                <p class="contact-description">
+                    I'm always interested in hearing about new projects and opportunities.
+                </p>
+
+                <div class="contact-methods">
+                    <a href="mailto:anand.saju@example.com" class="contact-link">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path
+                                d="M3 8L10.89 13.26C11.2187 13.4793 11.6049 13.5963 12 13.5963C12.3951 13.5963 12.7813 13.4793 13.11 13.26L21 8M5 19H19C19.5304 19 20.0391 18.7893 20.4142 18.4142C20.7893 18.0391 21 17.5304 21 17V7C21 6.46957 20.7893 5.96086 20.4142 5.58579C20.0391 5.21071 19.5304 5 19 5H5C4.46957 5 3.96086 5.21071 3.58579 5.58579C3.21071 5.96086 3 6.46957 3 7V17C3 17.5304 3.21071 18.0391 3.58579 18.4142C3.96086 18.7893 4.46957 19 5 19Z"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <span>anand.saju@example.com</span>
+                    </a>
+
+                    <div class="social-links">
+                        <a href="https://dribbble.com" class="social-link" target="_blank" rel="noopener">
+                            <span>Dribbble</span>
+                        </a>
+                        <a href="https://behance.net" class="social-link" target="_blank" rel="noopener">
+                            <span>Behance</span>
+                        </a>
+                        <a href="https://instagram.com" class="social-link" target="_blank" rel="noopener">
+                            <span>Instagram</span>
+                        </a>
+                        <a href="https://linkedin.com" class="social-link" target="_blank" rel="noopener">
+                            <span>LinkedIn</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">© 2026 Anand Saju. All rights reserved.</p>
+            <button class="back-to-top" id="backToTop">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path d="M10 16V4M10 4L4 10M10 4L16 10" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </button>
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+        </button>
+        <div class="lightbox-content">
+            <img src="" alt="" id="lightboxImage">
+            <div class="lightbox-info">
+                <h3 id="lightboxTitle"></h3>
+                <p id="lightboxCategory"></p>
+            </div>
+        </div>
+        <button class="lightbox-nav lightbox-prev" id="lightboxPrev">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+        </button>
+        <button class="lightbox-nav lightbox-next" id="lightboxNext">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+        </button>
+    </div>
+
+</body>
+
+</html>

@@ -293,3 +293,51 @@ window.addEventListener('portfolioLoaded', function() {
     console.log('🎉 portfolioLoaded event received! Initializing lightbox...');
     initializeLightbox();
 });
+
+// ===================================
+// MOUSE PARALLAX EFFECT FOR HERO SHAPES
+// ===================================
+
+function initializeParallax() {
+    const hero = document.querySelector('.hero');
+    const shapes = document.querySelectorAll('.shape');
+    
+    if (!hero || shapes.length === 0) return;
+    
+    let mouseX = 0;
+    let mouseY = 0;
+    let targetX = 0;
+    let targetY = 0;
+    
+    hero.addEventListener('mousemove', (e) => {
+        const rect = hero.getBoundingClientRect();
+        mouseX = (e.clientX - rect.left) / rect.width - 0.5;
+        mouseY = (e.clientY - rect.top) / rect.height - 0.5;
+    });
+    
+    function animate() {
+        // Smooth easing
+        targetX += (mouseX - targetX) * 0.1;
+        targetY += (mouseY - targetY) * 0.1;
+        
+        shapes.forEach((shape, index) => {
+            const speed = (index + 1) * 20;
+            const x = targetX * speed;
+            const y = targetY * speed;
+            
+            shape.style.transform = `translate(${x}px, ${y}px)`;
+        });
+        
+        requestAnimationFrame(animate);
+    }
+    
+    animate();
+    console.log('✨ Parallax effect initialized');
+}
+
+// Initialize parallax on page load
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeParallax);
+} else {
+    initializeParallax();
+}

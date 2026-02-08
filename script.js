@@ -199,3 +199,97 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }, 1000);
 });
+
+// ===================================
+// LIGHTBOX FUNCTIONALITY
+// ===================================
+
+function initializeLightbox() {
+    console.log('🔧 initializeLightbox() called');
+    
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const lightboxTitle = document.getElementById('lightboxTitle');
+    const lightboxCategory = document.getElementById('lightboxCategory');
+    const lightboxClose = document.getElementById('lightboxClose');
+    const lightboxPrev = document.getElementById('lightboxPrev');
+    const lightboxNext = document.getElementById('lightboxNext');
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+    if (!lightbox || portfolioItems.length === 0) {
+        console.error('❌ Lightbox elements not found or no portfolio items');
+        return;
+    }
+
+    let currentIndex = 0;
+
+    console.log('✅ Lightbox initialized with', portfolioItems.length, 'items');
+
+    // Open lightbox when clicking on portfolio items
+    portfolioItems.forEach((item, index) => {
+        item.addEventListener('click', () => {
+            currentIndex = index;
+            openLightbox();
+        });
+    });
+
+    function openLightbox() {
+        const item = portfolioItems[currentIndex];
+        const img = item.querySelector('img');
+        const title = item.querySelector('.portfolio-title').textContent;
+        const category = item.querySelector('.portfolio-category').textContent;
+
+        lightboxImage.src = img.src;
+        lightboxImage.alt = img.alt;
+        lightboxTitle.textContent = title;
+        lightboxCategory.textContent = category;
+
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        console.log('📸 Lightbox opened for:', title);
+    }
+
+    function closeLightbox() {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+        console.log('❌ Lightbox closed');
+    }
+
+    function showNext() {
+        currentIndex = (currentIndex + 1) % portfolioItems.length;
+        openLightbox();
+    }
+
+    function showPrev() {
+        currentIndex = (currentIndex - 1 + portfolioItems.length) % portfolioItems.length;
+        openLightbox();
+    }
+
+    // Event listeners
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightboxNext.addEventListener('click', showNext);
+    lightboxPrev.addEventListener('click', showPrev);
+
+    // Close on background click
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+            closeLightbox();
+        }
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('active')) return;
+
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowRight') showNext();
+        if (e.key === 'ArrowLeft') showPrev();
+    });
+}
+
+// Initialize lightbox after portfolio loads
+console.log('📝 Registering portfolioLoaded event listener for lightbox');
+window.addEventListener('portfolioLoaded', function() {
+    console.log('🎉 portfolioLoaded event received! Initializing lightbox...');
+    initializeLightbox();
+});

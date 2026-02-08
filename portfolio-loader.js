@@ -10,7 +10,7 @@ const portfolioData = {
         { filename: 'box 2.jpg', title: 'Packaging Design 2', category: 'Packaging' },
         { filename: 'box.jpg', title: 'Packaging Design', category: 'Packaging' },
         { filename: 'hoarding 2.jpg', title: 'Hoarding Design 2', category: 'Outdoor' },
-        { filename: 'hoarding.jpg', title: 'Hoarding Design', category: 'Outdoor' },
+        { filename: 'hoarding.png', title: 'Hoarding Design', category: 'Outdoor' },
         { filename: 'onam news paper add.jpg', title: 'Onam Newspaper Ad', category: 'Print' },
         { filename: 'phantom.jpg', title: 'Phantom', category: 'Branding' },
         { filename: 'image.png', title: 'Marriott Design 1', category: 'Branding' },

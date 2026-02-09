@@ -23,6 +23,7 @@ const portfolioData = {
         { filename: 'Untitled-1.jpg', title: 'Packaging Designing', category: 'Packaging' },
         { filename: 'WhatsApp Image 2026-02-05 at 11.16.07 AM.jpeg', title: 'Packaging Designing', category: 'Packaging' },
         { filename: 'rice mockup.jpg', title: 'Packaging Designing', category: 'Packaging' }
+        { filename: 'walnut mockup.jpg', title: 'Packaging Designing', category: 'Packaging' }
     ],
     melam: [
         { filename: 'image.png', title: 'Melam Design 1', category: 'Cultural' },

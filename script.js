@@ -341,3 +341,79 @@ if (document.readyState === 'loading') {
 } else {
     initializeParallax();
 }
+
+// ===================================
+// NIGHT SKY STAR GENERATION
+// ===================================
+
+function generateStars() {
+    const starsContainer = document.getElementById('starsContainer');
+    if (!starsContainer) return;
+    
+    const numberOfStars = 150;
+    
+    for (let i = 0; i < numberOfStars; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+        
+        // Random position
+        const x = Math.random() * 100;
+        const y = Math.random() * 70; // Keep stars in upper 70% of screen
+        
+        // Random size (1-3px)
+        const size = Math.random() * 2 + 1;
+        
+        // Random twinkle duration (2-5s)
+        const twinkleDuration = Math.random() * 3 + 2;
+        
+        // Random delay for stagger effect
+        const delay = Math.random() * 5;
+        
+        star.style.left = `${x}%`;
+        star.style.top = `${y}%`;
+        star.style.width = `${size}px`;
+        star.style.height = `${size}px`;
+        star.style.setProperty('--twinkle-duration', `${twinkleDuration}s`);
+        star.style.setProperty('--twinkle-delay', `${delay}s`);
+        
+        starsContainer.appendChild(star);
+    }
+    
+    console.log(`✨ Generated ${numberOfStars} stars`);
+    
+    // Create shooting stars occasionally
+    setInterval(createShootingStar, 8000);
+}
+
+function createShootingStar() {
+    const starsContainer = document.getElementById('starsContainer');
+    if (!starsContainer) return;
+    
+    // Only create shooting stars in dark mode
+    const theme = document.documentElement.getAttribute('data-theme');
+    if (theme !== 'dark') return;
+    
+    const shootingStar = document.createElement('div');
+    shootingStar.className = 'shooting-star';
+    
+    // Random starting position (top right area)
+    const x = Math.random() * 30 + 70; // 70-100%
+    const y = Math.random() * 30; // 0-30%
+    
+    shootingStar.style.left = `${x}%`;
+    shootingStar.style.top = `${y}%`;
+    
+    starsContainer.appendChild(shootingStar);
+    
+    // Remove after animation completes
+    setTimeout(() => {
+        shootingStar.remove();
+    }, 3000);
+}
+
+// Initialize stars on page load
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', generateStars);
+} else {
+    generateStars();
+}

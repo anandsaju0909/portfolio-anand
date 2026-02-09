@@ -1104,12 +1104,13 @@ button {
     }
 }
 
+
 /* ===================================
-   CREATIVE HOMEPAGE ANIMATIONS
+   NIGHT SKY & DAY SCENE ANIMATIONS
    =================================== */
 
-/* Animated Background Shapes */
-.hero-shapes {
+/* Sky Scene Container */
+.sky-scene {
     position: absolute;
     top: 0;
     left: 0;
@@ -1120,278 +1121,424 @@ button {
     pointer-events: none;
 }
 
-.shape {
+/* ========== STARS ========== */
+.stars-container {
     position: absolute;
-    opacity: 0.3;
-    will-change: transform;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
-.shape-1 {
-    width: 300px;
-    height: 300px;
-    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+.star {
+    position: absolute;
+    background: white;
     border-radius: 50%;
-    top: 10%;
-    left: 10%;
-    animation: float 20s ease-in-out infinite;
+    animation: twinkle var(--twinkle-duration) ease-in-out infinite;
+    animation-delay: var(--twinkle-delay);
 }
 
-.shape-2 {
-    width: 200px;
-    height: 200px;
-    background: linear-gradient(135deg, var(--accent-color), #9333ea);
-    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-    top: 60%;
-    right: 15%;
-    animation: float 15s ease-in-out infinite reverse;
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
 }
 
-.shape-3 {
-    width: 150px;
-    height: 150px;
-    background: linear-gradient(135deg, #3b82f6, var(--primary-color));
-    border-radius: 50%;
-    bottom: 20%;
-    left: 20%;
-    animation: float 18s ease-in-out infinite;
+/* ========== AURORA BOREALIS ========== */
+.aurora {
+    position: absolute;
+    width: 100%;
+    height: 40%;
+    top: 0;
+    opacity: 0;
+    filter: blur(40px);
+    mix-blend-mode: screen;
+}
+
+[data-theme="dark"] .aurora {
+    opacity: 0.6;
+}
+
+.aurora-1 {
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(0, 255, 136, 0.3) 25%, 
+        rgba(138, 43, 226, 0.3) 50%, 
+        rgba(0, 191, 255, 0.3) 75%, 
+        transparent 100%);
+    animation: aurora-flow 20s ease-in-out infinite;
+}
+
+.aurora-2 {
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(138, 43, 226, 0.2) 30%, 
+        rgba(0, 255, 136, 0.2) 60%, 
+        transparent 100%);
+    animation: aurora-flow 25s ease-in-out infinite reverse;
     animation-delay: -5s;
 }
 
-.shape-4 {
-    width: 250px;
-    height: 250px;
-    background: linear-gradient(135deg, var(--accent-color), #ec4899);
-    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-    top: 30%;
-    right: 25%;
-    animation: float 22s ease-in-out infinite;
+.aurora-3 {
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(0, 191, 255, 0.25) 40%, 
+        rgba(138, 43, 226, 0.25) 70%, 
+        transparent 100%);
+    animation: aurora-flow 30s ease-in-out infinite;
     animation-delay: -10s;
 }
 
-.shape-5 {
-    width: 180px;
-    height: 180px;
-    background: linear-gradient(135deg, #10b981, var(--primary-color));
+@keyframes aurora-flow {
+    0%, 100% {
+        transform: translateX(-10%) skewX(-5deg);
+        opacity: 0.4;
+    }
+    50% {
+        transform: translateX(10%) skewX(5deg);
+        opacity: 0.7;
+    }
+}
+
+/* ========== MOON ========== */
+.moon {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    top: 10%;
+    right: 15%;
+    background: radial-gradient(circle at 30% 30%, #fff, #e0e0e0);
     border-radius: 50%;
-    top: 70%;
-    left: 60%;
-    animation: float 16s ease-in-out infinite reverse;
-    animation-delay: -7s;
+    box-shadow: 0 0 40px 10px rgba(255, 255, 255, 0.3),
+                inset -10px -10px 20px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    animation: moon-glow 4s ease-in-out infinite;
 }
 
-.shape-6 {
-    width: 220px;
-    height: 220px;
-    background: linear-gradient(135deg, var(--primary-color), #6366f1);
-    border-radius: 40% 60% 60% 40% / 60% 40% 60% 40%;
-    top: 15%;
-    right: 40%;
-    animation: float 19s ease-in-out infinite;
-    animation-delay: -3s;
+[data-theme="dark"] .moon {
+    opacity: 1;
 }
 
-@keyframes float {
-
-    0%,
-    100% {
-        transform: translate(0, 0) rotate(0deg) scale(1);
+@keyframes moon-glow {
+    0%, 100% {
+        box-shadow: 0 0 40px 10px rgba(255, 255, 255, 0.3),
+                    inset -10px -10px 20px rgba(0, 0, 0, 0.1);
     }
-
-    25% {
-        transform: translate(30px, -30px) rotate(5deg) scale(1.05);
-    }
-
     50% {
-        transform: translate(-20px, 20px) rotate(-5deg) scale(0.95);
-    }
-
-    75% {
-        transform: translate(20px, 30px) rotate(3deg) scale(1.02);
+        box-shadow: 0 0 60px 20px rgba(255, 255, 255, 0.5),
+                    inset -10px -10px 20px rgba(0, 0, 0, 0.1);
     }
 }
 
-/* Animated Gradient Background */
-.hero {
-    background: linear-gradient(-45deg, #0f172a, #1e293b, #312e81, #1e1b4b);
-    background-size: 400% 400%;
-    animation: gradientShift 15s ease infinite;
-    position: relative;
+/* ========== SUN (Light Mode) ========== */
+.sun {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: 10%;
+    right: 15%;
+    background: radial-gradient(circle, #FFD700, #FFA500);
+    border-radius: 50%;
+    box-shadow: 0 0 60px 20px rgba(255, 215, 0, 0.6);
+    opacity: 0;
 }
 
-@keyframes gradientShift {
-    0% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0% 50%;
-    }
+[data-theme="light"] .sun {
+    opacity: 1;
 }
 
-/* Text Animation Effects */
-.hero-greeting {
-    display: inline-block;
-    animation: fadeInUp 0.8s ease-out;
+.sun-rays {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    animation: rotate-rays 20s linear infinite;
 }
 
-.hero-name {
-    display: inline-block;
-    animation: fadeInUp 0.8s ease-out 0.2s backwards;
-}
-
-.hero-subtitle {
-    animation: fadeInUp 0.8s ease-out 0.4s backwards;
-}
-
-.hero-description {
-    animation: fadeInUp 0.8s ease-out 0.6s backwards;
-}
-
-.hero-cta {
-    animation: fadeInUp 0.8s ease-out 0.8s backwards;
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* CTA Button Glow Effect */
-.hero-cta {
-    position: relative;
-    overflow: hidden;
-}
-
-.hero-cta::before {
+.sun-rays::before,
+.sun-rays::after {
     content: '';
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
-    transform: translate(-50%, -50%);
-    transition: width 0.6s, height 0.6s;
+    width: 120%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.5), transparent);
+    transform-origin: center;
 }
 
-.hero-cta:hover::before {
-    width: 300px;
-    height: 300px;
+.sun-rays::before {
+    transform: translate(-50%, -50%) rotate(45deg);
 }
 
-.hero-cta:hover {
-    box-shadow: 0 0 30px rgba(99, 102, 241, 0.5);
-    transform: translateY(-2px);
+.sun-rays::after {
+    transform: translate(-50%, -50%) rotate(-45deg);
 }
 
-/* Scroll Indicator Animation */
-.scroll-indicator {
-    animation: bounce 2s ease-in-out infinite;
-}
-
-@keyframes bounce {
-
-    0%,
-    20%,
-    50%,
-    80%,
-    100% {
-        transform: translateY(0);
+@keyframes rotate-rays {
+    from {
+        transform: rotate(0deg);
     }
-
-    40% {
-        transform: translateY(-10px);
-    }
-
-    60% {
-        transform: translateY(-5px);
+    to {
+        transform: rotate(360deg);
     }
 }
 
-.scroll-line {
-    animation: scrollPulse 2s ease-in-out infinite;
+/* ========== CLOUDS (Light Mode) ========== */
+.clouds {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
 }
 
-@keyframes scrollPulse {
-
-    0%,
-    100% {
-        height: 30px;
-        opacity: 0.5;
-    }
-
-    50% {
-        height: 50px;
-        opacity: 1;
-    }
+[data-theme="light"] .clouds {
+    opacity: 1;
 }
 
-/* Letter Animation for Hero Name */
-.hero-name {
-    position: relative;
+.cloud {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 100px;
+    filter: blur(2px);
 }
 
-.hero-name::after {
+.cloud::before,
+.cloud::after {
     content: '';
     position: absolute;
-    bottom: -10px;
-    left: 0;
-    width: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
-    animation: underlineGrow 1s ease-out 0.5s forwards;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 100px;
 }
 
-@keyframes underlineGrow {
-    to {
-        width: 100%;
+.cloud-1 {
+    width: 100px;
+    height: 40px;
+    top: 20%;
+    left: 10%;
+    animation: cloud-drift 40s linear infinite;
+}
+
+.cloud-1::before {
+    width: 50px;
+    height: 50px;
+    top: -25px;
+    left: 10px;
+}
+
+.cloud-1::after {
+    width: 60px;
+    height: 35px;
+    top: -15px;
+    right: 10px;
+}
+
+.cloud-2 {
+    width: 120px;
+    height: 45px;
+    top: 35%;
+    left: 60%;
+    animation: cloud-drift 50s linear infinite;
+    animation-delay: -10s;
+}
+
+.cloud-2::before {
+    width: 60px;
+    height: 60px;
+    top: -30px;
+    left: 15px;
+}
+
+.cloud-2::after {
+    width: 70px;
+    height: 40px;
+    top: -20px;
+    right: 15px;
+}
+
+.cloud-3 {
+    width: 90px;
+    height: 35px;
+    top: 50%;
+    left: 30%;
+    animation: cloud-drift 45s linear infinite;
+    animation-delay: -20s;
+}
+
+.cloud-3::before {
+    width: 45px;
+    height: 45px;
+    top: -20px;
+    left: 10px;
+}
+
+.cloud-3::after {
+    width: 55px;
+    height: 30px;
+    top: -15px;
+    right: 10px;
+}
+
+@keyframes cloud-drift {
+    from {
+        transform: translateX(-100px);
     }
+    to {
+        transform: translateX(calc(100vw + 100px));
+    }
+}
+
+/* ========== DESERT SILHOUETTE ========== */
+.desert {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    z-index: 1;
+}
+
+/* Sand Dunes */
+.dune {
+    position: absolute;
+    bottom: 0;
+    border-radius: 50% 50% 0 0;
+}
+
+[data-theme="dark"] .dune {
+    background: linear-gradient(to top, #1a1a2e, #16213e);
+}
+
+[data-theme="light"] .dune {
+    background: linear-gradient(to top, #f4a460, #daa520);
+}
+
+.dune-1 {
+    width: 40%;
+    height: 80%;
+    left: 0;
+}
+
+.dune-2 {
+    width: 50%;
+    height: 100%;
+    left: 30%;
+}
+
+.dune-3 {
+    width: 35%;
+    height: 70%;
+    right: 0;
+}
+
+/* Cacti */
+.cactus {
+    position: absolute;
+    bottom: 20%;
+    width: 20px;
+    border-radius: 10px;
+}
+
+[data-theme="dark"] .cactus {
+    background: #0f0f1e;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="light"] .cactus {
+    background: #2d5016;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.cactus::before,
+.cactus::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    border-radius: 6px;
+}
+
+[data-theme="dark"] .cactus::before,
+[data-theme="dark"] .cactus::after {
+    background: #0f0f1e;
+}
+
+[data-theme="light"] .cactus::before,
+[data-theme="light"] .cactus::after {
+    background: #2d5016;
+}
+
+.cactus-1 {
+    height: 60px;
+    left: 25%;
+}
+
+.cactus-1::before {
+    height: 25px;
+    left: -10px;
+    top: 15px;
+}
+
+.cactus-1::after {
+    height: 20px;
+    right: -10px;
+    top: 20px;
+}
+
+.cactus-2 {
+    height: 50px;
+    right: 30%;
+}
+
+.cactus-2::before {
+    height: 20px;
+    left: -9px;
+    top: 12px;
+}
+
+.cactus-2::after {
+    height: 18px;
+    right: -9px;
+    top: 15px;
+}
+
+/* ========== HERO BACKGROUND ========== */
+[data-theme="dark"] .hero {
+    background: linear-gradient(to bottom, #0a0e27 0%, #16213e 50%, #1a1a2e 100%) !important;
+}
+
+[data-theme="light"] .hero {
+    background: linear-gradient(to bottom, #87CEEB 0%, #B0E0E6 50%, #F0E68C 100%) !important;
 }
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
-    .shape {
-        opacity: 0.05;
+    .moon, .sun {
+        width: 60px;
+        height: 60px;
     }
-
-    .shape-1,
-    .shape-2,
-    .shape-3,
-    .shape-4,
-    .shape-5,
-    .shape-6 {
-        width: 150px;
-        height: 150px;
+    
+    .aurora {
+        height: 30%;
+        filter: blur(20px);
     }
-
-    @keyframes float {
-
-        0%,
-        100% {
-            transform: translate(0, 0) rotate(0deg);
-        }
-
-        50% {
-            transform: translate(10px, 10px) rotate(5deg);
-        }
+    
+    .cloud {
+        transform: scale(0.7);
     }
-}
-
-/* Performance Optimization */
-.shape,
-.hero-content>* {
-    transform: translateZ(0);
-    backface-visibility: hidden;
+    
+    .cactus {
+        width: 15px;
+    }
+    
+    .cactus-1 {
+        height: 45px;
+    }
+    
+    .cactus-2 {
+        height: 35px;
+    }
 }

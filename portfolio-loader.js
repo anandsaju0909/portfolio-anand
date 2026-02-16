@@ -5,7 +5,6 @@
 // Portfolio data from client folders
 const portfolioData = {
     marriot: [
-        { filename: 'Artboard onam.jpg', title: 'Onam Celebration', category: 'Event Design' },
         { filename: 'beer friendship day.jpg', title: 'Friendship Day', category: 'Promotional' },
         { filename: 'box 2.jpg', title: 'Packaging Design 2', category: 'Packaging' },
         { filename: 'box.jpg', title: 'Packaging Design', category: 'Packaging' },
@@ -15,6 +14,7 @@ const portfolioData = {
         { filename: 'phantom.jpg', title: 'Phantom', category: 'Branding' },
         { filename: 'image.png', title: 'Marriott Design 1', category: 'Branding' },
         { filename: 'image copy.png', title: 'Marriott Design 2', category: 'Branding' },
+        { filename: 'Artboard onam.jpg', title: 'Onam Celebration', category: 'Event Design' },
         { filename: 'image copy 2.png', title: 'Marriott Design 3', category: 'Branding' }
     ],
     swiggy: [

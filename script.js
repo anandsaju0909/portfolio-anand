@@ -2,20 +2,12 @@
 // DARK MODE TOGGLE
 // ===================================
 
-const themeToggle = document.getElementById('themeToggle');
-const html = document.documentElement;
+// Apply saved theme IMMEDIATELY to avoid flash of wrong theme
+const savedTheme = localStorage.getItem('theme') || 'light';
+document.documentElement.setAttribute('data-theme', savedTheme);
+// Note: click handler is in the inline <script> at the bottom of index.html
 
-// Check for saved theme preference or default to 'light'
-const currentTheme = localStorage.getItem('theme') || 'light';
-html.setAttribute('data-theme', currentTheme);
 
-themeToggle.addEventListener('click', () => {
-    const theme = html.getAttribute('data-theme');
-    const newTheme = theme === 'light' ? 'dark' : 'light';
-
-    html.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-});
 
 // ===================================
 // NAVIGATION SCROLL EFFECT
@@ -107,7 +99,7 @@ window.addEventListener('portfolioLoaded', initializeScrollNavigation);
 // PORTFOLIO FILTER FUNCTIONALITY
 // ===================================
 
-function initializeFilters() {
+`function initializeFilters() {
     console.log('🔧 initializeFilters() called');
 
     const filterButtons = document.querySelectorAll('.filter-btn');
@@ -128,7 +120,7 @@ function initializeFilters() {
     }
 
     filterButtons.forEach((button, index) => {
-        console.log(`✅ Attaching click listener to button ${index}:`, button.getAttribute('data-filter'));
+        console.log(`✅ Attaching click listener to button ${ index }: `, button.getAttribute('data-filter'));
 
         button.addEventListener('click', function () {
             console.log('🖱️ Filter button clicked:', this.getAttribute('data-filter'));
@@ -165,7 +157,7 @@ function initializeFilters() {
                 }
             });
 
-            console.log(`📊 Filtered: ${visibleCount} visible, ${hiddenCount} hidden`);
+            console.log(`📊 Filtered: ${ visibleCount } visible, ${ hiddenCount } hidden`);
 
             // Reset scroll position
             if (portfolioScroll) {
@@ -183,7 +175,7 @@ window.addEventListener('portfolioLoaded', function () {
     console.log('🎉 portfolioLoaded event received!');
     initializeFilters();
 });
-
+`
 // Also initialize filters on DOM ready as fallback
 document.addEventListener('DOMContentLoaded', () => {
     console.log('🌐 DOM loaded, waiting for portfolio items...');
@@ -206,7 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function initializeLightbox() {
     console.log('🔧 initializeLightbox() called');
-    
+
     const lightbox = document.getElementById('lightbox');
     const lightboxImage = document.getElementById('lightboxImage');
     const lightboxTitle = document.getElementById('lightboxTitle');
@@ -289,7 +281,7 @@ function initializeLightbox() {
 
 // Initialize lightbox after portfolio loads
 console.log('📝 Registering portfolioLoaded event listener for lightbox');
-window.addEventListener('portfolioLoaded', function() {
+window.addEventListener('portfolioLoaded', function () {
     console.log('🎉 portfolioLoaded event received! Initializing lightbox...');
     initializeLightbox();
 });
@@ -301,36 +293,36 @@ window.addEventListener('portfolioLoaded', function() {
 function initializeParallax() {
     const hero = document.querySelector('.hero');
     const shapes = document.querySelectorAll('.shape');
-    
+
     if (!hero || shapes.length === 0) return;
-    
+
     let mouseX = 0;
     let mouseY = 0;
     let targetX = 0;
     let targetY = 0;
-    
+
     hero.addEventListener('mousemove', (e) => {
         const rect = hero.getBoundingClientRect();
         mouseX = (e.clientX - rect.left) / rect.width - 0.5;
         mouseY = (e.clientY - rect.top) / rect.height - 0.5;
     });
-    
+
     function animate() {
         // Smooth easing
         targetX += (mouseX - targetX) * 0.1;
         targetY += (mouseY - targetY) * 0.1;
-        
+
         shapes.forEach((shape, index) => {
             const speed = (index + 1) * 20;
             const x = targetX * speed;
             const y = targetY * speed;
-            
+
             shape.style.transform = `translate(${x}px, ${y}px)`;
         });
-        
+
         requestAnimationFrame(animate);
     }
-    
+
     animate();
     console.log('✨ Parallax effect initialized');
 }
@@ -349,38 +341,38 @@ if (document.readyState === 'loading') {
 function generateStars() {
     const starsContainer = document.getElementById('starsContainer');
     if (!starsContainer) return;
-    
+
     const numberOfStars = 150;
-    
+
     for (let i = 0; i < numberOfStars; i++) {
         const star = document.createElement('div');
         star.className = 'star';
-        
+
         // Random position
         const x = Math.random() * 100;
         const y = Math.random() * 70; // Keep stars in upper 70% of screen
-        
+
         // Random size (1-3px)
         const size = Math.random() * 2 + 1;
-        
+
         // Random twinkle duration (2-5s)
         const twinkleDuration = Math.random() * 3 + 2;
-        
+
         // Random delay for stagger effect
         const delay = Math.random() * 5;
-        
+
         star.style.left = `${x}%`;
         star.style.top = `${y}%`;
         star.style.width = `${size}px`;
         star.style.height = `${size}px`;
         star.style.setProperty('--twinkle-duration', `${twinkleDuration}s`);
         star.style.setProperty('--twinkle-delay', `${delay}s`);
-        
+
         starsContainer.appendChild(star);
     }
-    
+
     console.log(`✨ Generated ${numberOfStars} stars`);
-    
+
     // Create shooting stars occasionally
     setInterval(createShootingStar, 8000);
 }
@@ -388,23 +380,23 @@ function generateStars() {
 function createShootingStar() {
     const starsContainer = document.getElementById('starsContainer');
     if (!starsContainer) return;
-    
+
     // Only create shooting stars in dark mode
     const theme = document.documentElement.getAttribute('data-theme');
     if (theme !== 'dark') return;
-    
+
     const shootingStar = document.createElement('div');
     shootingStar.className = 'shooting-star';
-    
+
     // Random starting position (top right area)
     const x = Math.random() * 30 + 70; // 70-100%
     const y = Math.random() * 30; // 0-30%
-    
+
     shootingStar.style.left = `${x}%`;
     shootingStar.style.top = `${y}%`;
-    
+
     starsContainer.appendChild(shootingStar);
-    
+
     // Remove after animation completes
     setTimeout(() => {
         shootingStar.remove();

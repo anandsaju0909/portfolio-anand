@@ -5,7 +5,6 @@
 // Portfolio data from client folders
 const portfolioData = {
     marriot: [
-        { filename: 'Artboard onam.jpg', title: 'Onam Celebration', category: 'Event Design' },
         { filename: 'beer friendship day.jpg', title: 'Friendship Day', category: 'Promotional' },
         { filename: 'box 2.jpg', title: 'Packaging Design 2', category: 'Packaging' },
         { filename: 'box.jpg', title: 'Packaging Design', category: 'Packaging' },
@@ -15,6 +14,7 @@ const portfolioData = {
         { filename: 'phantom.jpg', title: 'Phantom', category: 'Branding' },
         { filename: 'image.png', title: 'Marriott Design 1', category: 'Branding' },
         { filename: 'image copy.png', title: 'Marriott Design 2', category: 'Branding' },
+        { filename: 'Artboard onam.jpg', title: 'Onam Celebration', category: 'Event Design' },
         { filename: 'image copy 2.png', title: 'Marriott Design 3', category: 'Branding' }
     ],
     swiggy: [
@@ -22,7 +22,9 @@ const portfolioData = {
         { filename: 'Artboard 2.png', title: 'Packaging Designing', category: 'Packaging' },
         { filename: 'Untitled-1.jpg', title: 'Packaging Designing', category: 'Packaging' },
         { filename: 'WhatsApp Image 2026-02-05 at 11.16.07 AM.jpeg', title: 'Packaging Designing', category: 'Packaging' },
-        { filename: 'rice mockup.jpg', title: 'Packaging Designing', category: 'Packaging' }
+        { filename: 'rice mockup.jpg', title: 'Packaging Designing', category: 'Packaging' },
+        { filename: 'walnut.jpg', title: 'Packaging Designing', category: 'Packaging' },
+        { filename: 'dates.jpg', title: 'Packaging Designing', category: 'Packaging' }
     ],
     melam: [
         { filename: 'image.png', title: 'Melam Design 1', category: 'Cultural' },

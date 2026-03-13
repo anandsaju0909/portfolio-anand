@@ -25,6 +25,8 @@ const portfolioData = {
         { filename: 'rice mockup.jpg', title: 'Packaging Designing', category: 'Packaging' },
         { filename: 'walnut.jpg', title: 'Packaging Designing', category: 'Packaging' },
         { filename: 'dates.jpg', title: 'Packaging Designing', category: 'Packaging' }
+        { filename: 'HOLI POWDER', title: 'Packaging Designing', category: 'Packaging' }
+        { filename: 'nuts mockups', title: 'Packaging Designing', category: 'Packaging' }
     ],
     melam: [
         { filename: 'image.png', title: 'Melam Design 1', category: 'Cultural' },

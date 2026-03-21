@@ -109,6 +109,28 @@ body {
     transition: background-color var(--transition-base), color var(--transition-base);
 }
 
+/* Mobile-only background fix (prevents stretching) */
+@media (max-width: 900px) {
+    body {
+        background-image: none; 
+    }
+    
+    body::before {
+        content: '';
+        position: fixed;
+        top: -5vh;
+        left: 0;
+        width: 100vw;
+        height: 110vh;
+        z-index: -10;
+        background-image: url('assets/backgrounds/Artboard 5.jpg.jpeg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        pointer-events: none;
+    }
+}
+
 img {
     max-width: 100%;
     height: auto;

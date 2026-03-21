@@ -1,12 +1,55 @@
 // ===================================
-// DARK MODE TOGGLE
+// SCROLL REVEAL — Intersection Observer
 // ===================================
 
-// Apply saved theme IMMEDIATELY to avoid flash of wrong theme
-const savedTheme = localStorage.getItem('theme') || 'light';
-document.documentElement.setAttribute('data-theme', savedTheme);
-// Note: click handler is in the inline <script> at the bottom of index.html
+function initScrollReveal() {
+    const revealEls = document.querySelectorAll('.reveal');
+    if (!revealEls.length) return;
 
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                // Once revealed, stop observing
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.08,
+        rootMargin: '-4% 0px'
+    });
+
+    revealEls.forEach(el => observer.observe(el));
+
+    // Immediately reveal elements that start in the viewport (intro section)
+    revealEls.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight) {
+            // small delay so CSS transition fires visibly
+            setTimeout(() => el.classList.add('visible'), 80);
+        }
+    });
+}
+
+// ===================================
+// SCROLL PARALLAX — subtle bg depth
+// ===================================
+
+function initScrollParallax() {
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            requestAnimationFrame(() => {
+                const scrollY = window.pageYOffset;
+                // Subtle parallax: background moves at 30% of scroll speed
+                const offset = Math.round(scrollY * 0.30);
+                document.body.style.backgroundPositionY = `calc(top + ${offset}px)`;
+                ticking = false;
+            });
+            ticking = true;
+        }
+    });
+}
 
 
 // ===================================
@@ -105,27 +148,33 @@ function initPortfolio() {
 
     console.log('✅ Portfolio init: found', portfolioItems.length, 'items');
 
-    // ── Filter buttons ──
+    // ── Filter buttons with staggered entrance animation ──
     filterButtons.forEach(button => {
         button.addEventListener('click', function () {
-            // Update active state
             filterButtons.forEach(btn => btn.classList.remove('active'));
             this.classList.add('active');
 
             const filter = this.getAttribute('data-filter');
 
+            let visibleIndex = 0;
             portfolioItems.forEach(item => {
                 const client = item.getAttribute('data-client');
-                if (filter === 'all' || client === filter) {
+                const matches = filter === 'all' || client === filter;
+
+                if (matches) {
                     item.style.display = '';
-                    item.style.opacity = '1';
-                    item.style.transform = 'scale(1)';
+                    // Remove then re-add entering class to replay animation
+                    item.classList.remove('entering');
+                    const delay = visibleIndex * 70; // stagger 70ms per card
+                    setTimeout(() => {
+                        item.classList.add('entering');
+                    }, delay);
+                    visibleIndex++;
                 } else {
                     item.style.display = 'none';
                 }
             });
 
-            // Reset scroll to start
             if (portfolioScroll) portfolioScroll.scrollLeft = 0;
         });
     });
@@ -158,7 +207,11 @@ function initPortfolio() {
 }
 
 // Start polling as soon as DOM is ready
-document.addEventListener('DOMContentLoaded', () => setTimeout(initPortfolio, 300));
+document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(initPortfolio, 300);
+    initScrollReveal();
+    initScrollParallax();
+});
 
 
 
